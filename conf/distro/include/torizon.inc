@@ -49,7 +49,7 @@ IMAGE_FSTYPES_REMOVE ?= "ota-ext4 wic wic.gz wic.bmap wic.xz"
 IMAGE_FSTYPES:remove:sota = "${IMAGE_FSTYPES_REMOVE}"
 
 # No need to install boot script, kernel image, devicetrees or firmware into the boot partition
-IMAGE_BOOT_FILES = ""
+IMAGE_BOOT_FILES:sota = ""
 IMAGE_BOOT_FILES_REMOVE:sota = "boot.scr-${MACHINE};boot.scr overlays.txt overlays/*;overlays/"
 IMAGE_BOOT_FILES_REMOVE:append:apalis-imx8 = " hdmitxfw.bin dpfw.bin"
 
