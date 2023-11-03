@@ -45,6 +45,10 @@ input:x:101:torizon
 kvm:x:102:
 render:x:103:
 sgx:x:104:
+weston:x:980:
+wayland:x:981:
+weston-launch:x:982:
+pulse:x:983:
 systemd-bus-proxy:x:984:
 systemd-timesync:x:985:
 systemd-resolve:x:986:
