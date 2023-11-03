@@ -8,7 +8,8 @@ COPY_LIC_MANIFEST = "1"
 COPY_LIC_DIRS = "1"
 
 IMAGE_CLASSES:append = " image_type_torizon"
-IMAGE_CLASSES:remove = "image_type_tezi image_types_fsl"
+IMAGE_CLASSES:remove = "${IMAGE_CLASSES_TORIZON_REMOVE}"
+IMAGE_CLASSES_TORIZON_REMOVE ??= "image_type_tezi image_types_fsl"
 
 IMAGE_BASENAME_SUFFIX ?= ""
 
@@ -54,12 +55,16 @@ IMAGE_BOOT_FILES_REMOVE:sota = "boot.scr-${MACHINE};boot.scr overlays.txt overla
 IMAGE_BOOT_FILES_REMOVE:append:apalis-imx8 = " hdmitxfw.bin dpfw.bin"
 
 DISTRO_FEATURES:append = " virtualization stateless-system"
-DISTRO_FEATURES:remove = "3g alsa irda pcmcia nfc ldconfig pulseaudio wayland x11 ptest multiarch vulkan"
-DISTRO_FEATURES:imx-generic-bsp:remove = "opengl"
+DISTRO_FEATURES:remove = "${DISTRO_FEATURES_TORIZON_REMOVE}"
+DISTRO_FEATURES:imx-generic-bsp:remove = "${DISTRO_FEATURE_TORIZON_IMX_GENERIC_REMOVE}"
+DISTRO_FEATURES_TORIZON_REMOVE ??= "3g alsa irda pcmcia nfc ldconfig pulseaudio wayland x11 ptest multiarch vulkan"
+DISTRO_FEATURE_TORIZON_IMX_GENERIC_REMOVE ??= "opengl"
 
 # No need for x11 even for native
-DISTRO_FEATURES_NATIVE:imx-generic-bsp:remove = "x11"
-DISTRO_FEATURES_NATIVESDK:imx-generic-bsp:remove = "x11"
+DISTRO_FEATURES_NATIVE:imx-generic-bsp:remove = "${DISTRO_FEATURES_NATIVE_TORIZON_REMOVE}"
+DISTRO_FEATURES_NATIVE_TORIZON_REMOVE ??= "x11"
+DISTRO_FEATURES_NATIVESDK:imx-generic-bsp:remove = "${DISTRO_FEATURES_NATIVESDK_TORIZON_REMOVE}"
+DISTRO_FEATURES_NATIVESDK_TORIZON_REMOVE ??= "x11"
 
 # Note, enable or disable the useradd-staticids in a configured system,
 # the TMPDIR/DEPLOY_DIR/SSTATE_DIR may contain incorrect uid/gid values.
