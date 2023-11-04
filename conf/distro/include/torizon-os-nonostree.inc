@@ -1,0 +1,16 @@
+# For swupdate and Mender
+DISTRO_FEATURES:remove = " sota "
+INITRAMFS_IMAGE:forcevariable = ""
+IMAGE_FSTYPES:remove = " ostreepush garagesign garagecheck "
+IMAGE_FSTYPES:append = " wic.bmap wic.gz tar.xz "
+BBMASK:append = " \
+    /meta-updater \
+    /meta-toradex-torizon/recipes-bsp/u-boot/ \
+    /meta-openembedded/meta-oe/recipes-extended/ostree \
+"
+CORE_IMAGE_BASE_INSTALL:remove = " \
+    ostree-customize-plymouth \
+    ostree-devicetree-overlays \
+"
+IMAGE_CLASSES:remove = "image_type_torizon image_types_ostree image_types_ota"
+IMAGE_CLASSES_TORIZON_REMOVE:remove = "image_type_tezi"
