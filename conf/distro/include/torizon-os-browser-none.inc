@@ -1,0 +1,1 @@
+# No extra settings needed when not using a browser

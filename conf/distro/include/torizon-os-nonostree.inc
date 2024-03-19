@@ -2,7 +2,6 @@
 DISTRO_FEATURES:remove = " sota "
 INITRAMFS_IMAGE:forcevariable = ""
 IMAGE_FSTYPES:remove = " ostreepush garagesign garagecheck "
-IMAGE_FSTYPES:append = " wic.bmap wic.gz tar.xz "
 BBMASK:append = " \
     /meta-updater \
     /meta-toradex-torizon/recipes-bsp/u-boot/ \

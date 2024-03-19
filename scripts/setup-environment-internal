@@ -209,6 +209,9 @@ if [ ! -f "conf/local.conf" ]; then
     cp "${SCRIPTS}"/../conf/template/local.conf conf/local.conf
 fi
 ln -sf "${SCRIPTS}"/../conf/template/bblayers.conf conf/bblayers.conf
+for script in "${SCRIPTS}"/../conf/template/bblayers-*.conf; do
+    ln -sf "${script}" conf/
+done
 ln -sf "${MANIFESTS}"/README.md README.md
 ln -sf "${MANIFESTS}" "${OEROOT}"/layers/
 
@@ -243,6 +246,21 @@ SDKMACHINE ?= "${SDKMACHINE}"
 
 # Extra options that can be changed by the user
 INHERIT += "rm_work"
+
+require conf/distro/include/torizon-os-updater-benchmarking.inc
+
+EOF
+    cat >> conf/bblayers-updater-benchmarking.conf <<EOF
+# Select only 1.
+BENCHMARK_INCLUDED_BROWSER = "none"
+# BENCHMARK_INCLUDED_BROWSER = "chromium"
+
+# Select only 1.
+BENCHMARK_INCLUDED_UPDATER = "none"
+# BENCHMARK_INCLUDED_UPDATER = "mender"
+# BENCHMARK_INCLUDED_UPDATER = "swupdate"
+# BENCHMARK_INCLUDED_UPDATER = "rauc"
+# BENCHMARK_INCLUDED_UPDATER = "torizon"
 EOF
 else
     sed -i "s/^DISTRO ?= \"[^\"]*\"$/DISTRO ?= \"${DISTRO}\"/" conf/auto.conf
