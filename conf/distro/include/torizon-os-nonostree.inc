@@ -1,4 +1,5 @@
-# For swupdate and Mender
+# For swupdate, Rauc and Mender
+EXTRA_IMAGE_FEATURES += "read-only-rootfs read-only-rootfs-delayed-postinsts"
 DISTRO_FEATURES:remove = " sota "
 INITRAMFS_IMAGE:forcevariable = ""
 IMAGE_FSTYPES:remove = " ostreepush garagesign garagecheck "
