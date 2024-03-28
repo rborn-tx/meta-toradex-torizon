@@ -15,9 +15,9 @@ RAUC_KEYRING_FILE = "/work/dmoseley/local/rauc-example-ca/ca.cert.pem"
 RAUC_KEY_FILE = "/work/dmoseley/local/rauc-example-ca/private/development-1.key.pem"
 RAUC_CERT_FILE = "/work/dmoseley/local/rauc-example-ca/development-1.cert.pem"
 RAUC_SLOT_rootfs = "torizon-core-lite"
-RAUC_SLOT_rootfs[adaptive] = "block-hash-index"
-RAUC_BUNDLE_FORMAT = "verity"
-RAUC_CASYNC_BUNDLE = "1"
+RAUC_SLOT_rootfs[adaptive] = "${@'block-hash-index' if d.getVar('UPDATER_BENCHMARKING_TYPE') == 'delta' else ''}"
+RAUC_BUNDLE_FORMAT = "${@'verity' if d.getVar('UPDATER_BENCHMARKING_TYPE') == 'delta' else ''}"
+RAUC_CASYNC_BUNDLE = "${@'1' if d.getVar('UPDATER_BENCHMARKING_TYPE') == 'delta' else '0'}"
 
 ROOTFS_POSTPROCESS_COMMAND:append = " toradex_rauc_update_boot;"
 toradex_rauc_update_boot() {
