@@ -249,6 +249,9 @@ INHERIT += "rm_work"
 
 require conf/distro/include/torizon-os-updater-benchmarking.inc
 
+UPDATER_BENCHMARKING_STAGE ?= "1"
+MENDER_ARTIFACT_NAME ?= "release-${UPDATER_BENCHMARKING_STAGE}"
+
 EOF
     cat >> conf/bblayers-updater-benchmarking.conf <<EOF
 # Select only 1.

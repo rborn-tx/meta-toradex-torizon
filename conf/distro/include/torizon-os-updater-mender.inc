@@ -15,5 +15,3 @@ MENDER_UBOOT_POST_SETUP_COMMANDS:append = " ; setenv tdxargs \${tdxargs} \${boot
 MENDER_UBOOT_POST_SETUP_COMMANDS:append = " ; setenv overlays_file /boot/overlays.txt ; setenv overlays_prefix boot/overlays/ "
 TORADEX_BSP_VERSION = "toradex-bsp-6.2.0"
 MENDER_STORAGE_TOTAL_SIZE_MB = "3072"
-
-MENDER_ARTIFACT_NAME ?= "release-1"
