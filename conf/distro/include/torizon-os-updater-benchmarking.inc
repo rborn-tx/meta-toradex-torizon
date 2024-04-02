@@ -1,7 +1,7 @@
 EXTRA_IMAGE_FEATURES += "debug-tweaks ssh-server-openssh"
 IMAGE_ROOTFS_SIZE = "1048576"
 CORE_IMAGE_BASE_INSTALL:remove = "usermount"
-IMAGE_INSTALL:append = " os-release udev-extraconf "
+IMAGE_INSTALL:append = " os-release udev-extraconf curl tcpdump "
 
 # These settings are explicitly only needed for chromium
 # but to make sure all builds use the same settings will
