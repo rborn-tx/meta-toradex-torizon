@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <project name="rauc/meta-rauc.git" path="layers/meta-rauc" remote="github"  revision="kirkstone"/>
+  <project name="rauc/meta-rauc-community.git" path="layers/meta-rauc-community" remote="github"  revision="kirkstone"/>
+</manifest>

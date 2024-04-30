@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <project name="kraj/meta-clang.git" path="layers/meta-clang" remote="github" revision="kirkstone"/>
+  <!-- This commit has defined here: https://developer.toradex.com/linux-bsp/application-development/gui/how-to-use-web-browser-linux/ -->
+  <project name="OSSystems/meta-browser.git" path="layers/meta-browser" remote="github" branch="master" revision="e232c2e21b96dc092d9af8bea4b3a528e7a46dd6"/>
+  <project name="nxp-imx/meta-imx.git" path="layers/meta-imx" remote="github" revision="langdale-6.1.1-1.0.0"/>
+</manifest>
