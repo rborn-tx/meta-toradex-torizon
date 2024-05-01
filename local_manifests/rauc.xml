@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <remote alias="repo" fetch="https://github.com/rauc" name="rauc"/>
+  <remote alias="repo" fetch="https://github.com/drewmoseley" name="dmoseley-rauc"/>
   <project name="meta-rauc.git" path="layers/meta-rauc" remote="rauc" revision="kirkstone"/>
-  <project name="meta-rauc-community.git" path="layers/meta-rauc-community" remote="rauc" revision="kirkstone"/>
+  <project name="meta-rauc-community.git" path="layers/meta-rauc-community" remote="dmoseley-rauc" revision="rauc-toradex-6.5.0"/>
 </manifest>

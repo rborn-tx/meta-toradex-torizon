@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <remote alias="repo" fetch="https://github.com/sbabic" name="sbabic"/>
+  <remote alias="repo" fetch="https://github.com/drewmoseley" name="dmoseley-swupdate"/>
   <project name="meta-swupdate.git" path="layers/meta-swupdate" remote="sbabic" revision="kirkstone"/>
-  <project name="meta-swupdate-boards.git" path="layers/meta-swupdate-boards" remote="sbabic" revision="kirkstone"/>
+  <project name="meta-swupdate-boards.git" path="layers/meta-swupdate-boards" remote="dmoseley-swupdate" revision="swupdate-toradex-6.5.0"/>
 </manifest>
