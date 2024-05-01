@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <project name="sbabic/meta-swupdate.git" path="layers/meta-swupdate" remote="github"  revision="kirkstone"/>
-  <project name="sbabic/meta-swupdate-boards.git" path="layers/meta-swupdate-boards" remote="github"  revision="kirkstone"/>
+  <remote alias="repo" fetch="https://github.com/sbabic" name="sbabic"/>
+  <project name="meta-swupdate.git" path="layers/meta-swupdate" remote="sbabic" revision="kirkstone"/>
+  <project name="meta-swupdate-boards.git" path="layers/meta-swupdate-boards" remote="sbabic" revision="kirkstone"/>
 </manifest>
