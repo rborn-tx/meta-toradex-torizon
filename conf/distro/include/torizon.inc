@@ -88,13 +88,12 @@ EXPERIMENTALOVERRIDES = ""
 #EXPERIMENTALOVERRIDES:colibri-imx6ull = ":experimental"
 DISTROOVERRIDES .= "${EXPERIMENTALOVERRIDES}"
 
-# Use our variant of the aktualizr client instead of the
-# default from meta-updater
-PREFERRED_PROVIDER_aktualizr = "aktualizr-torizon"
-PREFERRED_PROVIDER_aktualizr-native = "aktualizr-torizon-native"
-PREFERRED_RPROVIDER_aktualizr = "aktualizr-torizon"
-PREFERRED_RPROVIDER_aktualizr-info = "aktualizr-torizon"
-PREFERRED_RPROVIDER_aktualizr-shared-prov = "aktualizr-torizon"
+# For GSoC we use upstream aktualizr:
+PREFERRED_PROVIDER_aktualizr = "aktualizr"
+PREFERRED_PROVIDER_aktualizr-native = "aktualizr-native"
+PREFERRED_RPROVIDER_aktualizr = "aktualizr"
+PREFERRED_RPROVIDER_aktualizr-info = "aktualizr"
+PREFERRED_RPROVIDER_aktualizr-shared-prov = "aktualizr"
 
 # disable warning message from meta-security
 SKIP_META_SECURITY_SANITY_CHECK = "1"
