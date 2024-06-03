@@ -21,17 +21,24 @@ S = "${WORKDIR}/git"
 
 PV = "1.0+git${SRCPV}"
 
-DEPENDS = "boost curl openssl libarchive libsodium sqlite3 asn1c-native ostree"
+DEPENDS = "boost curl openssl libarchive libsodium sqlite3 asn1c-native"
+DEPENDS:append = "${@bb.utils.contains('OSTREE_ENABLED', '1', ' ostree ', '', d)}"
 RDEPENDS:${PN}:class-target = "aktualizr-hwid lshw bash aktualizr-default-sec aktualizr-polling-interval aktualizr-reboot greenboot"
 
 inherit cmake pkgconfig systemd
+
+# GSoC: disable OSTree:
+OSTREE_ENABLED = "0"
 
 SYSTEMD_SERVICE:${PN} = "aktualizr-torizon.service"
 
 # For find_package(Git)
 OECMAKE_FIND_ROOT_PATH_MODE_PROGRAM = "BOTH"
 
-PACKAGECONFIG ?= "ostree ${@bb.utils.filter('SOTA_CLIENT_FEATURES', 'hsm serialcan ubootenv', d)}"
+PACKAGECONFIG ?= " \
+    ${@bb.utils.filter('SOTA_CLIENT_FEATURES', 'hsm serialcan ubootenv', d)} \
+    ${@bb.utils.contains('OSTREE_ENABLED', '1', ' ostree ', '', d)} \
+"
 PACKAGECONFIG[warning-as-error] = "-DWARNING_AS_ERROR=ON,-DWARNING_AS_ERROR=OFF,"
 PACKAGECONFIG[ostree] = "-DBUILD_OSTREE=ON,-DBUILD_OSTREE=OFF,ostree,"
 PACKAGECONFIG[ubootenv] = ",,u-boot-fw-utils,u-boot-fw-utils"
