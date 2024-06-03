@@ -115,3 +115,7 @@ PREFERRED_VERSION_rust-llvm-native ?= "${RUSTVERSION}"
 PREFERRED_VERSION_rust-native ?= "${RUSTVERSION}"
 PREFERRED_VERSION_curl ?= "${CURLVERSION}"
 PREFERRED_VERSION_libcurl ?= "${CURLVERSION}"
+
+# Ad-hoc solution for GSoC:
+SOTA_HARDWARE_ID ??= "${MACHINE}"
+IMAGE_INSTALL:append = " aktualizr aktualizr-hwid aktualizr-device-prov"
