@@ -23,7 +23,9 @@ PV = "1.0+git${SRCPV}"
 
 DEPENDS = "boost curl openssl libarchive libsodium sqlite3 asn1c-native"
 DEPENDS:append = "${@bb.utils.contains('OSTREE_ENABLED', '1', ' ostree ', '', d)}"
-RDEPENDS:${PN}:class-target = "aktualizr-hwid lshw bash aktualizr-default-sec aktualizr-polling-interval aktualizr-reboot greenboot"
+
+# GSoC: removed: "aktualizr-default-sec greenboot"
+RDEPENDS:${PN}:class-target = "bash lshw aktualizr-hwid aktualizr-polling-interval aktualizr-reboot"
 
 inherit cmake pkgconfig systemd
 
