@@ -7,8 +7,8 @@ constraints such as storage or memory, or include software we are still evaluati
 
 IMAGE_FEATURES += "ssh-server-openssh bash-completion-pkgs"
 
-# Enough free space for a full image update
-IMAGE_OVERHEAD_FACTOR = "2.3"
+# GSoC: allow the image to increase by 80%
+IMAGE_OVERHEAD_FACTOR = "1.5"
 
 inherit core-image
 

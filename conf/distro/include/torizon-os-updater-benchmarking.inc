@@ -1,5 +1,5 @@
 EXTRA_IMAGE_FEATURES += "debug-tweaks ssh-server-openssh"
-IMAGE_ROOTFS_SIZE = "1048576"
+IMAGE_ROOTFS_SIZE = "655360"
 CORE_IMAGE_BASE_INSTALL:remove = "usermount"
 IMAGE_INSTALL:append = " os-release udev-extraconf curl tcpdump "
 
