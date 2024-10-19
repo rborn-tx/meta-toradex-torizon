@@ -117,5 +117,6 @@ PREFERRED_VERSION_curl ?= "${CURLVERSION}"
 PREFERRED_VERSION_libcurl ?= "${CURLVERSION}"
 
 # Ad-hoc solution for GSoC:
-SOTA_HARDWARE_ID ??= "${MACHINE}"
+# TODO: Handle swupdate case as well.
+SOTA_HARDWARE_ID ??= "${MACHINE}${@bb.utils.contains('DISTRO_FEATURES', 'rauc', '-rauc', '', d)}"
 IMAGE_INSTALL:append = " aktualizr aktualizr-hwid aktualizr-device-prov"
